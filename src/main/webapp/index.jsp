@@ -1,8 +1,9 @@
 <html>
 <body>
-<form action="addition">
-	<input type="text" name="ip1"><br><hr>
-	<input type="text" name="ip2"><br><hr>
+<form action="add">
+	Id    : <input type="text" name="id"><br><hr>
+	Name  : <input type="text" name="uname"><br><hr>
+	Email :Name  : <input type="text" name="emailid"><br><hr>
 	<input type="submit">
 </form>
 </body>
