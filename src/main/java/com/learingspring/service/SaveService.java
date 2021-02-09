@@ -2,6 +2,7 @@ package com.learingspring.service;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,13 @@ public class SaveService {
 		
 		SessionFactory ses = cf.buildSessionFactory();
 		
-		Session sss = ses.getCurrentSession();
+		Session sss = ses.openSession();
+		
+		Transaction tx = sss.beginTransaction();
+		
+		sss.save(us);
+		
+		tx.commit();
 		
 		sss.save(us);		
 	}

@@ -19,7 +19,7 @@ public class AddController {
 		int id;
 		String username,email;
 		id = Integer.parseInt(request.getParameter("id"));
-		username = request.getParameter("name");
+		username = request.getParameter("uname");
 		email = request.getParameter("emailid");
 		
 		UserDetails us = new UserDetails();
