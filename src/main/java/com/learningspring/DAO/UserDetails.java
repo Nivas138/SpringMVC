@@ -12,15 +12,23 @@ public class UserDetails {
 	private int id;
 	
 	@Column
+	private UserNames userfullname;
+	
+	public UserNames getUserfullname() {
+		return userfullname;
+	}
+
+	public void setUserfullname(UserNames userfullname) {
+		this.userfullname = userfullname;
+	}
+
+	@Column
 	private String name;
 	
 	@Column
 	private String email;
 
-	@Override
-	public String toString() {
-		return "UserDetails [id=" + id + ", name=" + name + ", email=" + email + "]";
-	}
+
 
 	public int getId() {
 		return id;
@@ -44,6 +52,11 @@ public class UserDetails {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDetails [id=" + id + ", userfullname=" + userfullname + ", name=" + name + ", email=" + email + "]";
 	}
 	
 	

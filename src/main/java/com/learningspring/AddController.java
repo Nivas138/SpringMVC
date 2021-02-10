@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.learingspring.service.AddService;
+
 import com.learingspring.service.SaveService;
 import com.learningspring.DAO.UserDetails;
+import com.learningspring.DAO.UserNames;
 
 @Controller
 public class AddController {
@@ -22,14 +23,22 @@ public class AddController {
 		id = Integer.parseInt(request.getParameter("id"));
 		username = request.getParameter("uname");
 		email = request.getParameter("emailid");
+		String firstname = request.getParameter("fname");
+		String lastname = request.getParameter("lname");
+		String middlename = request.getParameter("mname");
+		UserNames us = new UserNames();
+		us.setFirstname(firstname);
+		us.setLastname(lastname);
+		us.setMiddlename(middlename);
 		
-		UserDetails us = new UserDetails();
-		us.setId(id);
-		us.setName(username);
-		us.setEmail(email);
+		UserDetails usr = new UserDetails();
+		usr.setId(id);
+		usr.setName(username);
+		usr.setEmail(email);
+		usr.setUserfullname(us);
 		
 		SaveService ss = new SaveService();
-		ss.save(us);
+		ss.save(usr);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("display");
