@@ -50,6 +50,8 @@ public class SaveService {
 		
 		tx.commit();
 		
+		ss.close();
+		
 		return us;
 		
 	}

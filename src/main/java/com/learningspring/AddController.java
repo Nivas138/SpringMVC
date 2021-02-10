@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.learingspring.service.AddService;
@@ -32,8 +33,18 @@ public class AddController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("display");
-		mv.addObject("res", ss.get(1));
+		mv.addObject("res", "Done");
 		return mv;
+	}
+	
+	@RequestMapping("/user")
+	public ModelAndView view(@RequestParam("id") int id) {
+		ModelAndView mv1 = new ModelAndView();
+		mv1.setViewName("display");
+		SaveService ss = new SaveService();
+		mv1.addObject("res",ss.get(id));
+		return mv1;
+		
 	}
 
 }
