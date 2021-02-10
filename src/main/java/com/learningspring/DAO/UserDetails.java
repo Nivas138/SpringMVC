@@ -17,6 +17,11 @@ public class UserDetails {
 	@Column
 	private String email;
 
+	@Override
+	public String toString() {
+		return "UserDetails [id=" + id + ", name=" + name + ", email=" + email + "]";
+	}
+
 	public int getId() {
 		return id;
 	}

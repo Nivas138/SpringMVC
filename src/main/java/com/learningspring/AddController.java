@@ -32,7 +32,7 @@ public class AddController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("display");
-		mv.addObject("res", "done");
+		mv.addObject("res", ss.get(1));
 		return mv;
 	}
 

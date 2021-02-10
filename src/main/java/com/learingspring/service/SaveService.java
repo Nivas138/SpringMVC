@@ -1,11 +1,13 @@
 package com.learingspring.service;
 
+import javax.imageio.spi.ServiceRegistry;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Component;
-
+import org.hibernate.service.*;
 import com.learningspring.DAO.UserDetails;
 
 @Component
@@ -23,10 +25,33 @@ public class SaveService {
 		
 		Transaction tx = sss.beginTransaction();
 		
+		//Put the Data in Data
 		sss.save(us);
 		
 		tx.commit();
 		
-		sss.save(us);		
+		ses.close();
+				
 	}
+	
+	public UserDetails get(int id) {
+		
+		Configuration cf = new Configuration().configure("hiberConfig.cfg.xml");
+		
+		SessionFactory sf = cf.buildSessionFactory();
+		
+		Session ss = sf.openSession();
+		
+		Transaction tx = ss.beginTransaction();
+		
+		UserDetails us = null;
+		
+		us = (UserDetails) ss.get(UserDetails.class, id);
+		
+		tx.commit();
+		
+		return us;
+		
+	}
+	
 }
