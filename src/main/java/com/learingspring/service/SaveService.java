@@ -8,6 +8,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Component;
 import org.hibernate.service.*;
+
+import com.learningspring.DAO.Laptop;
 import com.learningspring.DAO.UserDetails;
 
 @Component
@@ -15,9 +17,9 @@ public class SaveService {
 	
 	//private SessionFactory sessionFactory;
 	
-	public void save(UserDetails us) {
+	public void save(UserDetails us,Laptop lp) {
 		
-		Configuration cf = new Configuration().configure("hiberConfig.cfg.xml");
+		Configuration cf = new Configuration().configure("hiberConfig.cfg.xml").addAnnotatedClass(UserDetails.class).addAnnotatedClass(Laptop.class);
 		
 		SessionFactory ses = cf.buildSessionFactory();
 		
@@ -26,7 +28,12 @@ public class SaveService {
 		Transaction tx = sss.beginTransaction();
 		
 		//Put the Data in Data
-		sss.save(us);
+		if(us != null) {
+			sss.save(us);
+		}else if(lp != null) {
+			sss.save(lp);
+		}
+		
 		
 		tx.commit();
 		

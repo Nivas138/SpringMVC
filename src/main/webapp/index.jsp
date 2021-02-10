@@ -15,5 +15,11 @@
 	Id  : <input type="text" name="id"><br><hr>
 	<input type="submit">
 </form>
+<form action="laptopAdd">
+	<center>LapTopAdd</center>
+	UserId  : <input type="text" name="uid"><br><hr>
+	Laptop Name  : <input type="text" name="lapname"><br><hr>
+	<input type="submit">
+</form>
 </body>
 </html>
