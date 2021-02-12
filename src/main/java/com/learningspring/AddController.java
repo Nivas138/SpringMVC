@@ -38,8 +38,9 @@ public class AddController {
 		usr.setEmail(email);
 		usr.setUserfullname(us);
 		Laptop lps = new Laptop();
-
-		
+		lps.setId(id);
+		lps.setLaptopName("Dell");
+		usr.getLaps().add(lps);
 		
 		SaveService ss = new SaveService();
 		ss.save(usr,lps);
@@ -58,6 +59,9 @@ public class AddController {
 		Laptop lp = new Laptop();
 		lp.setId(id);
 		lp.setLaptopName(lpname);
+		UserDetails us = new UserDetails();
+		us = ss.get(id);
+		lp.getUserDetails().add(us);
 		ss.save(null,lp);
 		mv1.addObject("res",ss.get(id));
 		return mv1;

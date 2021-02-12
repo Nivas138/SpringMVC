@@ -1,8 +1,13 @@
 package com.learningspring.DAO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class UserDetails {
@@ -14,6 +19,17 @@ public class UserDetails {
 	@Column
 	private UserNames userfullname;
 	
+	@ManyToMany(mappedBy="userDetails")
+	private List<Laptop> laps = new ArrayList<Laptop>();
+	
+	public List<Laptop> getLaps() {
+		return laps;
+	}
+
+	public void setLaps(List<Laptop> laps) {
+		this.laps = laps;
+	}
+
 	public UserNames getUserfullname() {
 		return userfullname;
 	}
