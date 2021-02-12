@@ -83,12 +83,18 @@
 		<artifactId>mssql-jdbc</artifactId>
 		<version>6.1.0.jre7</version>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
+
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-ehcache</artifactId>
+    <version>4.1.1.Final</version>
+</dependency>
 	<dependency>
-	    <groupId>net.sf.ehcache</groupId>
-	    <artifactId>ehcache</artifactId>
-	    <version>2.10.6</version>
-	</dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib</artifactId>
+      <version>2.2.2</version>
+    </dependency>
 	
   </dependencies>
   <build>

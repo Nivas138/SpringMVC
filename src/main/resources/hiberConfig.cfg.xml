@@ -16,7 +16,7 @@
     <property name="format_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
   	<property name="hibernate.cache.use_second_level_cache">true</property>
-    <property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory.class</property>
+    <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory.class</property>
     <!-- JDBC connection pool (use the built-in) -->
     <property name="connection.pool_size">20</property>
      <mapping class="com.learningspring.DAO.UserDetails" />

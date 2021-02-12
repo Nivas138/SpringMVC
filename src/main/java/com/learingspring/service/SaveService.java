@@ -2,10 +2,12 @@ package com.learingspring.service;
 
 import javax.imageio.spi.ServiceRegistry;
 
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Component;
 import org.hibernate.service.*;
 
@@ -53,7 +55,9 @@ public class SaveService {
 		
 		UserDetails us = null;
 		
-		us = (UserDetails) ss.get(UserDetails.class, id);
+		Query q1 = ss.createQuery("from dbo.User_Details  where id="+id);
+		
+		us = (UserDetails) q1.uniqueResult();
 		
 		tx.commit();
 		
