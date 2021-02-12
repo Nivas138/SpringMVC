@@ -11,9 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 
 @Entity
 @Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class UserDetails {
 	
 	@Id

@@ -55,8 +55,6 @@ public class SaveService {
 		
 		us = (UserDetails) ss.get(UserDetails.class, id);
 		
-		us = (UserDetails) ss.get(UserDetails.class, id);
-		
 		tx.commit();
 		
 		ss.close();
