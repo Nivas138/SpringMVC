@@ -3,13 +3,17 @@ package com.learningspring.DAO;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+
 @Entity
+@Cacheable
 public class UserDetails {
 	
 	@Id
@@ -19,7 +23,7 @@ public class UserDetails {
 	@Column
 	private UserNames userfullname;
 	
-	@ManyToMany(mappedBy="userDetails")
+	@ManyToMany(mappedBy="userDetails",fetch = FetchType.EAGER)
 	private List<Laptop> laps = new ArrayList<Laptop>();
 	
 	public List<Laptop> getLaps() {
@@ -72,8 +76,11 @@ public class UserDetails {
 
 	@Override
 	public String toString() {
-		return "UserDetails [id=" + id + ", userfullname=" + userfullname + ", name=" + name + ", email=" + email + "]";
+		return "UserDetails [id=" + id + ", userfullname=" + userfullname + ", laps=" + laps + ", name=" + name
+				+ ", email=" + email + "]";
 	}
+
+	
 	
 	
 }

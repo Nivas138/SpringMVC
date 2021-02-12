@@ -43,7 +43,7 @@ public class SaveService {
 	
 	public UserDetails get(int id) {
 		
-		Configuration cf = new Configuration().configure("hiberConfig.cfg.xml");
+		Configuration cf = new Configuration().configure("hiberConfig.cfg.xml").addAnnotatedClass(UserDetails.class).addAnnotatedClass(Laptop.class);
 		
 		SessionFactory sf = cf.buildSessionFactory();
 		
@@ -52,6 +52,8 @@ public class SaveService {
 		Transaction tx = ss.beginTransaction();
 		
 		UserDetails us = null;
+		
+		us = (UserDetails) ss.get(UserDetails.class, id);
 		
 		us = (UserDetails) ss.get(UserDetails.class, id);
 		
